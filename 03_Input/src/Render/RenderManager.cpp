@@ -110,6 +110,16 @@ void RenderManager::RenderScene(void)
 	Sleep(10);
 }
 
+void RenderManager::StartDrawingSceneNode(const Vector3 &position, const Vector3 &orientation) const
+{
+	_renderer->StartDrawingSceneNode(position, orientation);
+}
+
+void RenderManager::StopDrawingSceneNode(void) const
+{
+	_renderer->StopDrawingSceneNode();
+}
+
 void RenderManager::DrawCube(const Vector3& leftUpForwardVertex, const Vector3& rightBottomBackVertex, const Color& color) const
 {
 	_renderer->DrawCube(leftUpForwardVertex, rightBottomBackVertex, color );

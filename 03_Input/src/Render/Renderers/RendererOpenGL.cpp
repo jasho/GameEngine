@@ -92,6 +92,18 @@ void RendererOpenGL::StopDrawingScene(void) const
 	SDL_GL_SwapBuffers();
 }
 
+void RendererOpenGL::StartDrawingSceneNode(const Vector3 &position, const Vector3 &orientation) const
+{
+	glPushMatrix();
+
+	glTranslatef(position.GetX(), position.GetY(), position.GetZ());
+}
+
+void RendererOpenGL::StopDrawingSceneNode(void) const
+{
+	glPopMatrix();
+}
+
 void RendererOpenGL::DrawTriangle(void) const
 {
 	glBegin(GL_TRIANGLES);

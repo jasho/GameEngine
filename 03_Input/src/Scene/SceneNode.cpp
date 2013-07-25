@@ -1,4 +1,6 @@
 #include "SceneNode.h"
+#include "../Render/Models/Model.h"
+#include "../Render/RenderManager.h"
 
 SceneNode::SceneNode()
 {
@@ -6,6 +8,21 @@ SceneNode::SceneNode()
 
 SceneNode::~SceneNode()
 {
+}
+
+Vector3 SceneNode::GetPosition() const
+{
+	return _position;
+}
+
+Vector3 SceneNode::GetScale() const
+{
+	return _scale;
+}
+
+Vector3 SceneNode::GetRotation() const
+{
+	return _rotation;
 }
 
 void SceneNode::Translate(int x, int y, int z)
@@ -38,6 +55,20 @@ void SceneNode::Scale ( int x, int y, int z )
 	_scale.SetValues( _scale.GetX() + x, _scale.GetY() + y, _scale.GetZ() + z );
 }
 
+void SceneNode::Render() const
+{
+	RenderManager::GetInstance()->StartDrawingSceneNode(_position, _rotation);
+
+		_model->Render();
+
+		vector<SceneNode*>::const_iterator childNodeIterator;
+		for(childNodeIterator = _children.begin(); childNodeIterator != _children.end(); ++childNodeIterator)
+		{
+			(*childNodeIterator)->Render();
+		}
+
+	RenderManager::GetInstance()->StopDrawingSceneNode();
+}
 
 void SceneNode::addChildNode(SceneNode * node)
 {
@@ -46,10 +77,9 @@ void SceneNode::addChildNode(SceneNode * node)
 
 void SceneNode::removeChildNode(SceneNode * node)
 {
-	vector<SceneNode *>::const_iterator found = find(_children.cbegin(), _children.cend(), node); 
-	if(found != _children.cend()) 
+	vector<SceneNode *>::const_iterator foundNode = find(_children.cbegin(), _children.cend(), node); 
+	if(foundNode != _children.cend()) 
 	{ 
-		_children.erase(found);
+		_children.erase(foundNode);
 	}
 }
-

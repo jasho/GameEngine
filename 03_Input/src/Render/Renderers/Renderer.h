@@ -13,6 +13,9 @@ public:
 	virtual void StartDrawingScene(void) const = 0;
 	virtual void StopDrawingScene(void) const = 0;
 
+	virtual void StartDrawingSceneNode(const Vector3 &position, const Vector3 &orientation) const = 0;
+	virtual void StopDrawingSceneNode(void) const = 0;
+
 	virtual void DrawTriangle(void) const = 0;
 	virtual void DrawCube(const Vector3& leftUpForwardVertex, const Vector3& rightBottomBackVertex, const Color &color) const = 0;
 
