@@ -10,32 +10,32 @@ SceneNode::~SceneNode()
 
 void SceneNode::Translate(int x, int y, int z)
 {
-	_position.SetValues( _position.GetX() + x, _position.GetY() + y, _position.GetZ + z );
+	_position.SetValues( _position.GetX() + x, _position.GetY() + y, _position.GetZ() + z );
 }
 
-void SceneNode::Translate( Vector3 vector )
+void SceneNode::Translate( Vector3 translation )
 {
-	_position.SetValues( _position.GetX() + vector.GetX() , _position.GetY() + vector.GetY() , _position.GetZ + vector.GetZ() );
+	_position.SetValues( _position.GetX() + translation.GetX() , _position.GetY() + translation.GetY() , _position.GetZ() + translation.GetZ() );
 }
 
-void SceneNode::Rotate( Vector3 vector )
+void SceneNode::Rotate( Vector3 rotation )
 {
-	_rotation.SetValues( _rotation.GetX() + vector.GetX() , _rotation.GetY() + vector.GetY() , _rotation.GetZ + vector.GetZ() );
+	_rotation.SetValues( _rotation.GetX() + rotation.GetX() , _rotation.GetY() + rotation.GetY() , _rotation.GetZ() + rotation.GetZ() );
 }
 
 void SceneNode::Rotate( int x, int y, int z )
 {
-	_rotation.SetValues( _rotation.GetX() + x, _rotation.GetY() + y, _rotation.GetZ + z );
+	_rotation.SetValues( _rotation.GetX() + x, _rotation.GetY() + y, _rotation.GetZ() + z );
 }
 
-void SceneNode::Scale( Vector3 vector )
+void SceneNode::Scale( Vector3 scale )
 {
-	_scale.SetValues( _scale.GetX() + vector.GetX() , _scale.GetY() + vector.GetY() , _scale.GetZ + vector.GetZ() );
+	_scale.SetValues( _scale.GetX() + scale.GetX() , _scale.GetY() + scale.GetY() , _scale.GetZ() + scale.GetZ() );
 }
 
 void SceneNode::Scale ( int x, int y, int z )
 {
-	_scale.SetValues( _scale.GetX() + x, _scale.GetY() + y, _scale.GetZ + z );
+	_scale.SetValues( _scale.GetX() + x, _scale.GetY() + y, _scale.GetZ() + z );
 }
 
 

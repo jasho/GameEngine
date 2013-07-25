@@ -101,10 +101,10 @@ void RendererOpenGL::DrawTriangle(void) const
 	glEnd();
 }
 
-void RendererOpenGL::DrawCube(const Vector3& leftUpForwardVertex, const Vector3& rightBottomBackVertex, const Vector3& color) const
+void RendererOpenGL::DrawCube(const Vector3& leftUpForwardVertex, const Vector3& rightBottomBackVertex, const Color& color) const
 {
 	// Set the color
-	glColor3f(color.GetX(), color.GetY(), color.GetZ());
+	glColor3f(color.GetRed(), color.GetGreen(), color.GetBlue());
 	
 	glBegin(GL_QUADS);
 		// Top face

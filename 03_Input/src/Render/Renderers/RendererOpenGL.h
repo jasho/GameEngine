@@ -17,7 +17,7 @@ public:
 	void StopDrawingScene(void) const;
 
 	void DrawTriangle(void) const;
-	void DrawCube(const Vector3& leftUpForwardVertex, const Vector3& rightBottomBackVertex, const Vector3& color) const;
+	void DrawCube(const Vector3& leftUpForwardVertex, const Vector3& rightBottomBackVertex, const Color& color) const;
 
 	void TransformCamera(const Vector3& position, const Vector3& orientation) const;
 

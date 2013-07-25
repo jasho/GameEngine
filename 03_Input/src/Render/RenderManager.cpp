@@ -97,7 +97,7 @@ void RenderManager::RenderScene(void)
 	//_renderer->DrawTriangle();
 	Vector3 leftUpForwardVertex(0.0f, 1.0f, -10.0f);
 	Vector3 rightBottomBackVertex(1.0f, 0.0f, -20.0f);
-	Vector3 color(1.0f, 0.0f, 0.0f);
+	Color color(1.0f, 0.0f, 0.0f);
 	_renderer->DrawCube(leftUpForwardVertex, rightBottomBackVertex, color);
 	_renderer->StopDrawingScene();
 
@@ -108,4 +108,9 @@ void RenderManager::RenderScene(void)
 	}
 
 	Sleep(10);
+}
+
+void RenderManager::DrawCube(const Vector3& leftUpForwardVertex, const Vector3& rightBottomBackVertex, const Color& color) const
+{
+	_renderer->DrawCube(leftUpForwardVertex, rightBottomBackVertex, color );
 }

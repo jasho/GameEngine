@@ -1,6 +1,9 @@
 #ifndef RENDERMANAGER_HEADER
 #define RENDERMANAGER_HEADER
 
+#include "../Misc/Vectors/Vector3.h"
+#include "../Misc/Color.h"
+
 class Renderer;
 
 class RenderManager
@@ -18,8 +21,8 @@ public:
 	void SetWindowHeight(int windowHeight);
 	bool IsFullscreen(void) const;
 	void ToggleFullscreen(void);
-
 	void RenderScene(void);
+	void DrawCube(const Vector3& leftUpForwardVertex, const Vector3& rightBottomBackVertex, const Color& color) const;
 
 protected:
 	enum RendererType { RENDERER_TYPE_OPENGL, RENDERER_TYPE_DIRECTX };
