@@ -59,7 +59,6 @@ void UpdateManager::Run()
 	}
 
 	SDL_Event currentEvent;
-
 	while(_currentGameState!= QUITTING)
 	{
 		switch (_currentGameState)

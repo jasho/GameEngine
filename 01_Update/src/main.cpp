@@ -6,7 +6,7 @@
 #endif
 
 #include "Update\UpdateManager.h"
-
+//testovaci komentar
 int wmain(int argc, char *argv[])
 {
 	UpdateManager::Create();
