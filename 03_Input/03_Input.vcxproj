@@ -94,6 +94,7 @@
     <ClCompile Include="src\Render\Renderers\Renderer.cpp" />
     <ClCompile Include="src\Render\Renderers\RendererOpenGL.cpp" />
     <ClCompile Include="src\Render\RenderManager.cpp" />
+    <ClCompile Include="src\Scene\SceneNode.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Serialize\Serializable.cpp" />
     <ClCompile Include="src\Update\UpdateManager.cpp" />
@@ -117,6 +118,7 @@
     <ClInclude Include="src\Render\Renderers\Renderer.h" />
     <ClInclude Include="src\Render\Renderers\RendererOpenGL.h" />
     <ClInclude Include="src\Render\RenderManager.h" />
+    <ClInclude Include="src\Scene\SceneNode.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />
     <ClInclude Include="src\Serialize\Serializable.h" />
     <ClInclude Include="src\Serialize\SerializationStrings.h" />
