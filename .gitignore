@@ -11,3 +11,4 @@
 *.lai
 *.la
 *.a
+/03_Input/*.filters
