@@ -11,3 +11,8 @@
 *.lai
 *.la
 *.a
+/01_Update/*.user
+/02_Render/*.user
+/03_Input/*.user
+/03_Input/*.filters
+/04_Scene/*.user
