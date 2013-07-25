@@ -1,6 +1,8 @@
 #include <cstdlib>
 #include "EventManager.h"
 #include "../Input/InputManager.h"
+#include "../Update/UpdateManager.h"
+#include "../Window/WindowManager.h"
 
 EventManager* EventManager::_instance = NULL;
 
@@ -38,6 +40,12 @@ void EventManager::OnEvent(SDL_Event* event)
 {
 	switch (event->type)
 	{
+	case SDL_ACTIVEEVENT:
+	case SDL_QUIT:
+	case SDL_VIDEORESIZE:
+	case SDL_VIDEOEXPOSE:
+		WindowManager::GetInstance()->OnWindowEvent(event);	
+		break;
 	// Keyboard
 	case SDL_KEYDOWN:
 	case SDL_KEYUP:
@@ -52,7 +60,6 @@ void EventManager::OnEvent(SDL_Event* event)
 	case SDL_JOYBUTTONUP:
 		InputManager::GetInstance()->OnInputEvent(event);
 		break;
-
 	default:
 		break;
 	}

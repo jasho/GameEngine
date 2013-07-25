@@ -37,6 +37,20 @@ void UpdateManager::Destroy()
 	}
 }
 
+void UpdateManager::MouseMoved(int, int)
+{
+}
+
+void UpdateManager::MouseLeftButtonClicked()
+{
+	_currentGameState = QUITTING;
+}
+
+void UpdateManager::MouseRightButtonClicked()
+{
+	_currentGameState = QUITTING;
+}
+
 bool UpdateManager::Initialize()
 {
 	_currentGameState = RUNNING;
@@ -82,6 +96,11 @@ void UpdateManager::Run()
 		
 		_currentUpdater->Update();
 	}
+}
+
+void UpdateManager::Quit()
+{
+	_currentGameState = QUITTING;
 }
 
 void UpdateManager::KeyDown(SDLKey symbol, SDLMod mode, Uint16 unicode)

@@ -96,6 +96,7 @@
     <ClCompile Include="src\Update\Updaters\Updater.cpp" />
     <ClCompile Include="src\Update\Updaters\UpdaterPaused.cpp" />
     <ClCompile Include="src\Update\Updaters\UpdaterRunning.cpp" />
+    <ClCompile Include="src\Window\WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Event\EventManager.h" />
@@ -114,6 +115,7 @@
     <ClInclude Include="src\Update\Updaters\Updater.h" />
     <ClInclude Include="src\Update\Updaters\UpdaterPaused.h" />
     <ClInclude Include="src\Update\Updaters\UpdaterRunning.h" />
+    <ClInclude Include="src\Window\WindowManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

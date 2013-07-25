@@ -2,6 +2,7 @@
 #include "KeyboardListener.h"
 #include "MouseListener.h"
 #include "..\Misc\Vectors\Vector2.h"
+#include <iostream>
 
 using namespace std;
 
@@ -46,18 +47,34 @@ void InputManager::Destroy()
 
 void InputManager::OnInputEvent(SDL_Event* event)
 {
+	int a;
 	switch (event->type)
 	{
 	// Keyboard
 	case SDL_KEYDOWN:
 		_keys[event->key.keysym.sym] = true;
 		notifyKeyDown(event->key.keysym.sym, event->key.keysym.mod, event->key.keysym.unicode);
+		break;
 	case SDL_KEYUP:
 		_keys[event->key.keysym.sym] = false;
 		notifyKeyUp(event->key.keysym.sym, event->key.keysym.mod, event->key.keysym.unicode);
+		break;
 	// Mouse
 	case SDL_MOUSEMOTION:
+		std::cout << event->motion.x << " x " << event->motion.y << std::endl;
+		break;
+
 	case SDL_MOUSEBUTTONDOWN:
+		switch(event->button.button)
+		{
+		case SDL_BUTTON_LEFT:
+			notifyMouseLeftButtonClicked();
+			break;
+		case SDL_BUTTON_RIGHT:
+			notifyMouseRightButtonClicked();
+			break;
+		}
+		break;
 	case SDL_MOUSEBUTTONUP:
 	// Joystick
 	case SDL_JOYAXISMOTION:

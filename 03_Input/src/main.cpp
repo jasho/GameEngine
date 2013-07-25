@@ -9,6 +9,7 @@
 #include "Render\RenderManager.h"
 #include "Event\EventManager.h"
 #include "Input\InputManager.h"
+#include "Window\WindowManager.h"
 
 int wmain(int argc, char *argv[])
 {
@@ -16,6 +17,7 @@ int wmain(int argc, char *argv[])
 	InputManager::Create();
 	UpdateManager::Create();
 	RenderManager::Create();	
+	WindowManager::Create();
 
 	if(UpdateManager::GetInstance()->Initialize() == false)
 	{
@@ -37,12 +39,14 @@ int wmain(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
+	
 	UpdateManager::GetInstance()->Run();
 
+	UpdateManager::Destroy();
 	EventManager::Destroy();
 	InputManager::Destroy();
-	UpdateManager::Destroy();
 	RenderManager::Destroy();
+	WindowManager::Destroy();
 
 	return EXIT_SUCCESS;
 }
