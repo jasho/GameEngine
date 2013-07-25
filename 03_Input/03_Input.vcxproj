@@ -92,6 +92,7 @@
     <ClCompile Include="src\Render\Renderers\Renderer.cpp" />
     <ClCompile Include="src\Render\Renderers\RendererOpenGL.cpp" />
     <ClCompile Include="src\Render\RenderManager.cpp" />
+    <ClCompile Include="src\Scene\SceneNode.cpp" />
     <ClCompile Include="src\Update\UpdateManager.cpp" />
     <ClCompile Include="src\Update\Updaters\Updater.cpp" />
     <ClCompile Include="src\Update\Updaters\UpdaterPaused.cpp" />
@@ -111,6 +112,7 @@
     <ClInclude Include="src\Render\Renderers\Renderer.h" />
     <ClInclude Include="src\Render\Renderers\RendererOpenGL.h" />
     <ClInclude Include="src\Render\RenderManager.h" />
+    <ClInclude Include="src\Scene\SceneNode.h" />
     <ClInclude Include="src\Update\UpdateManager.h" />
     <ClInclude Include="src\Update\Updaters\Updater.h" />
     <ClInclude Include="src\Update\Updaters\UpdaterPaused.h" />
