@@ -8,16 +8,14 @@
 
 using namespace std;
 
-#define STRING_ENTITY_TYPE_CUBES "Cubes"
-
 class CubeModel : public Model
 {
 public:
 	virtual void Draw() const;
-	virtual void SaveToFile(std::istream&);
-	virtual void LoadFromFile(std::ostream&) const;
-	virtual string SaveToString() const;
-	virtual void LoadToString() const;
+	
+	virtual void SaveToOutputStream(std::ostream&) const;
+	virtual void LoadFromInputStream(std::istream&);
+
 private:
 	vector<vector<vector<Color *>>> _cubes;
 };
