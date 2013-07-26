@@ -83,3 +83,5 @@ void SceneNode::removeChildNode(SceneNode * node)
 		_children.erase(foundNode);
 	}
 }
+
+
