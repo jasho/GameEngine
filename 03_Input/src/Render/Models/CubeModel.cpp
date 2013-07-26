@@ -50,7 +50,20 @@ void CubeModel::SaveToOutputStream(std::ostream& outputStream) const
 	}
 }
 
-void CubeModel::LoadFromInputStream(std::istream&)
+void CubeModel::LoadFromInputStream(std::istream& inputStream)
 {
+	int sizeX, sizeY, sizeZ;
+	inputStream >> sizeX >> sizeY >> sizeZ;
+
+	for(int x = 0; x < sizeX; ++x)
+	{
+		for(int y = 0; y < sizeY; ++y)
+		{
+			for(int z = 0; z < sizeZ; ++z)
+			{
+				
+			}
+		}
+	}
 
 }
