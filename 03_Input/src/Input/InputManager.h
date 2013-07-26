@@ -55,7 +55,7 @@ private:
 	void notifyKeyDown(SDLKey symbol, SDLMod mode, Uint16 unicode) const;
 	void notifyKeyUp(SDLKey symbol, SDLMod mode, Uint16 unicode) const;
 
-	void notifyMouseMoved() const;
+	void notifyMouseMoved(int,int) const;
 	void notifyMouseLeftButtonClicked() const;
 	void notifyMouseRightButtonClicked() const;
 };

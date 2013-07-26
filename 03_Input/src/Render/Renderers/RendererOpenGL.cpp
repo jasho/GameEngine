@@ -160,8 +160,8 @@ void RendererOpenGL::DrawCube(const Vector3& leftUpForwardVertex, const Vector3&
 void RendererOpenGL::TransformCamera(const Vector3& position, const Vector3& orientation) const 
 {
 	// Rotate the object On Z, X & Y - work in progress
-	glRotatef(-orientation.GetX(), 1, 0, 0);
-	glRotatef(-orientation.GetY(), 0, 1, 0);
+	glRotatef(-orientation.GetX(), 0, 1, 0);
+	glRotatef(-orientation.GetY(), 1, 0, 0);
 
 	// Move the object
 	glTranslatef(-position.GetX(), -position.GetY(), -position.GetZ());

@@ -9,7 +9,7 @@
 using namespace std;
 
 
-class UserPlayer : public Player, public KeyboardListener
+class UserPlayer : public Player, public KeyboardListener, public MouseListener
 {
 public:
 	UserPlayer();
@@ -17,6 +17,8 @@ public:
 
 	void KeyDown(SDLKey symbol, SDLMod mode, Uint16 unicode);
 	void KeyUp(SDLKey symbol, SDLMod mode, Uint16 unicode );
-
+	virtual void MouseMoved(int, int);
+	virtual void MouseLeftButtonClicked();
+	virtual void MouseRightButtonClicked();
 };
 #endif
