@@ -1,7 +1,9 @@
 #ifndef COLOR_HEADER
 #define COLOR_HEADER
 
-class Color
+#include "../Serialize/Serializable.h"
+
+class Color : public Serializable
 {
 public:
 	Color();
@@ -16,6 +18,9 @@ public:
 	void SetBlue(float);
 	void SetGreen(float);
 	void SetColors( float, float, float );
+
+	virtual void SaveToOutputStream(std::ostream&) const;
+	virtual void LoadFromInputStream(std::istream&);
 
 private:
 	float _red;

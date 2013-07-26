@@ -28,8 +28,26 @@ void CubeModel::Draw() const
 
 void CubeModel::SaveToOutputStream(std::ostream& outputStream) const
 {
-	outputStream << STRING_CUBEMODEL_TYPE << STRING_LINE_SEPARATOR;
+	int sizeX = _cubes.size();
+	int sizeY = _cubes[0].size();
+	int sizeZ = _cubes[0][0].size();
 
+	outputStream << sizeX << STRING_SPACE_SEPARATOR;
+	outputStream << sizeY << STRING_SPACE_SEPARATOR;
+	outputStream << sizeY << STRING_LINE_SEPARATOR;
+
+	for(int x = 0; x < sizeX; ++x)
+	{
+		for(int y = 0; y < sizeY; ++y)
+		{
+			for(int z = 0; z < sizeZ; ++z)
+			{
+				_cubes[x][y][z]->SaveToOutputStream(outputStream);
+			}
+			outputStream << STRING_LINE_SEPARATOR;
+		}
+		outputStream << STRING_LAYER_SEPARATOR;
+	}
 }
 
 void CubeModel::LoadFromInputStream(std::istream&)
