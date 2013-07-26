@@ -1,13 +1,15 @@
 #ifndef SCENENODE_HEADER
 #define SCENENODE_HEADER
 
-#include "../Misc/Vectors/Vector3.h"
 #include <vector>
+#include "../Misc/Vectors/Vector3.h"
+#include "../Serialize/Serializable.h"
+
 using namespace std;
 
 class Model;
 
-class SceneNode
+class SceneNode : public Serializable
 {
 public:
 	SceneNode();
@@ -22,6 +24,9 @@ public:
 	void Rotate( int, int, int );
 	void Scale( Vector3 );
 	void Scale (int, int, int );
+
+	virtual void SaveToOutputStream(std::ostream&) const;
+	virtual bool LoadFromInputStream(std::istream&);
 
 	void Render() const;
 

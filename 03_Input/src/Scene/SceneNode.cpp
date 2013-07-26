@@ -55,6 +55,18 @@ void SceneNode::Scale ( int x, int y, int z )
 	_scale.SetValues( _scale.GetX() + x, _scale.GetY() + y, _scale.GetZ() + z );
 }
 
+void SceneNode::SaveToOutputStream(std::ostream&) const
+{
+
+}
+
+bool SceneNode::LoadFromInputStream(std::istream&)
+{
+
+
+	return true;
+}
+
 void SceneNode::Render() const
 {
 	RenderManager::GetInstance()->StartDrawingSceneNode(_position, _rotation);
