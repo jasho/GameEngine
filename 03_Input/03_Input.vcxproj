@@ -98,6 +98,9 @@
     <ClCompile Include="src\Scene\SceneNode.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Serialize\Serializable.cpp" />
+    <ClCompile Include="src\Serialize\SerializationHelperManager.cpp" />
+    <ClCompile Include="src\Serialize\SerializationHelpers\SerializationHelper.cpp" />
+    <ClCompile Include="src\Serialize\SerializationHelpers\SerializationHelperXml.cpp" />
     <ClCompile Include="src\Update\UpdateManager.cpp" />
     <ClCompile Include="src\Update\Updaters\Updater.cpp" />
     <ClCompile Include="src\Update\Updaters\UpdaterPaused.cpp" />
@@ -123,6 +126,9 @@
     <ClInclude Include="src\Scene\SceneNode.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />
     <ClInclude Include="src\Serialize\Serializable.h" />
+    <ClInclude Include="src\Serialize\SerializationHelperManager.h" />
+    <ClInclude Include="src\Serialize\SerializationHelpers\SerializationHelper.h" />
+    <ClInclude Include="src\Serialize\SerializationHelpers\SerializationHelperXml.h" />
     <ClInclude Include="src\Serialize\SerializationStrings.h" />
     <ClInclude Include="src\Update\UpdateManager.h" />
     <ClInclude Include="src\Update\Updaters\Updater.h" />
