@@ -59,7 +59,7 @@ void SceneNode::Render() const
 {
 	RenderManager::GetInstance()->StartDrawingSceneNode(_position, _rotation);
 
-		_model->Render();
+		_model->Draw();
 
 		vector<SceneNode*>::const_iterator childNodeIterator;
 		for(childNodeIterator = _children.begin(); childNodeIterator != _children.end(); ++childNodeIterator)

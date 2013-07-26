@@ -4,6 +4,7 @@
 #include "Model.h"
 #include "../../Misc/Color.h"
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -12,7 +13,11 @@ using namespace std;
 class CubeModel : public Model
 {
 public:
-	virtual void Render() const;
+	virtual void Draw() const;
+	virtual void SaveToFile(std::istream&);
+	virtual void LoadFromFile(std::ostream&) const;
+	virtual string SaveToString() const;
+	virtual void LoadToString() const;
 private:
 	vector<vector<vector<Color *>>> _cubes;
 };

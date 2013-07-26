@@ -1,5 +1,6 @@
 #include <cstdio>
 #include "SceneManager.h"
+#include "SceneNode.h"
 
 SceneManager* SceneManager::_instance = NULL;
 
@@ -34,5 +35,5 @@ SceneManager* SceneManager::GetInstance()
 
 void SceneManager::RenderScene() const
 {
-
+	_sceneNodeRoot->Render();
 }

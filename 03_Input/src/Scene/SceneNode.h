@@ -16,14 +16,13 @@ public:
 	Vector3 GetScale() const;
 	Vector3 GetRotation() const;
 
-	void Translate(int, int, int);
 	void Translate( Vector3 );
+	void Translate(int, int, int);
 	void Rotate( Vector3 );
 	void Rotate( int, int, int );
 	void Scale( Vector3 );
 	void Scale (int, int, int );
 
-protected:
 	void Render() const;
 
 private:

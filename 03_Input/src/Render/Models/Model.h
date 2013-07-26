@@ -6,7 +6,7 @@
 class Model : public Serializable
 {
 public:
-	virtual void Render() const = 0;
+	virtual void Draw() const = 0;
 };
 
 #endif // MODEL_HEADER

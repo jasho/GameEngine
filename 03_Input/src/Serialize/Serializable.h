@@ -8,8 +8,10 @@
 class Serializable
 {
 public:
-	virtual void SaveToFile(std::istream&) = 0;
-	virtual void LoadFromFile(std::ostream&) const = 0;
+	virtual void SaveToFile(std::string) = 0;
+	virtual void LoadFromFile(std::string) const = 0;
+	virtual void SaveToOutputStream(std::ostream&) const = 0;
+	virtual void LoadFromOutputStream(std::istream&) const = 0;
 };
 
 #endif
