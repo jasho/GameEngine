@@ -1,6 +1,8 @@
 #include "SceneNode.h"
 #include "../Render/Models/Model.h"
 #include "../Render/RenderManager.h"
+#include "../Serialize/SerializationHelperManager.h"
+#include "../Serialize/SerializationStrings.h"
 
 SceneNode::SceneNode()
 {
@@ -55,16 +57,32 @@ void SceneNode::Scale ( int x, int y, int z )
 	_scale.SetValues( _scale.GetX() + x, _scale.GetY() + y, _scale.GetZ() + z );
 }
 
-void SceneNode::SaveToOutputStream(std::ostream&) const
+void SceneNode::SaveToOutputStream(std::ostream& outputStream) const
 {
+	outputStream << SerializationHelperManager::GetInstance()->GetStartTag(STRING_SCENENODE_MODEL_TAGNAME, NULL );
+	_model->SaveToOutputStream( outputStream );
+	outputStream << SerializationHelperManager::GetInstance()->GetEndTag( STRING_SCENENODE_MODEL_TAGNAME );
 
+	outputStream << SerializationHelperManager::GetInstance()->GetStartTag( STRING_SCENENODE_POSITION_TAGNAME , NULL);
+	_position.SaveToOutputStream( outputStream );
+	outputStream << SerializationHelperManager::GetInstance()->GetEndTag( STRING_SCENENODE_POSITION_TAGNAME );
+
+	outputStream << SerializationHelperManager::GetInstance()->GetStartTag( STRING_SCENENODE_ROTATION_TAGNAME, NULL );
+	_rotation.SaveToOutputStream( outputStream );
+	outputStream << SerializationHelperManager::GetInstance()->GetEndTag( STRING_SCENENODE_ROTATION_TAGNAME );
+
+	outputStream << SerializationHelperManager::GetInstance()->GetStartTag( STRING_SCENENODE_SCALE_TAGNAME , NULL);
+	_scale.SaveToOutputStream( outputStream );
+	outputStream << SerializationHelperManager::GetInstance()->GetEndTag( STRING_SCENENODE_SCALE_TAGNAME );
 }
 
-bool SceneNode::LoadFromInputStream(std::istream&)
+bool SceneNode::LoadFromInputStream(std::istream& inputStream)
 {
-
-
-	return true;
+	/*_model->LoadFromInputStream( inputStream );
+	_position.LoadFromInputStream( inputStream );
+	_rotation.LoadFromInputStream( inputStream );
+	_scale.LoadFromInputStream( inputStream );
+	return true;*/
 }
 
 void SceneNode::Render() const

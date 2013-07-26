@@ -2,7 +2,7 @@
 #include "../RenderManager.h"
 #include "../../Misc/Conversions.h"
 #include "../../Serialize/SerializationStrings.h"
-
+#include "../../Serialize/SerializationHelperManager.h"
 using namespace std;
 
 void CubeModel::Draw() const
