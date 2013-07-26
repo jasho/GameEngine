@@ -40,3 +40,14 @@ Vector &Vector::operator*=(const Vector &rhs)
 	*this = *this * rhs;
 	return *this;
 }
+
+void Vector::SaveToOutputStream(std::ostream& outputStream) const
+{
+	outputStream <<_x;
+}
+
+bool Vector::LoadFromInputStream(std::istream& inputStream)
+{
+	inputStream >> _x;
+	return true;
+}

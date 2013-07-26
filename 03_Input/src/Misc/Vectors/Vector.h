@@ -1,7 +1,10 @@
 #ifndef VECTOR_HEADER
 #define VECTOR_HEADER
 
-class Vector {
+#include "../../Serialize/Serializable.h" 
+
+class Vector : public Serializable
+{
 
 public:
 	Vector(float x = 0.0);
@@ -21,6 +24,9 @@ public:
 	Vector &operator+=(const Vector &rhs);
 	Vector &operator-=(const Vector &rhs);
 	Vector &operator*=(const Vector &rhs);
+
+	virtual void SaveToOutputStream(std::ostream&) const;
+	virtual bool LoadFromInputStream(std::istream&);
 
 protected:
 	float _x;

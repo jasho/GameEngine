@@ -1,4 +1,5 @@
 #include "Vector4.h"
+#include "../../Serialize/SerializationStrings.h"
 
 Vector4::Vector4(float x, float y, float z, float w) : Vector3(x, y, z), _w(w) {}
 
@@ -46,4 +47,16 @@ Vector4 &Vector4::operator*=(const Vector4 &rhs)
 {
 	*this = *this * rhs;
 	return *this;
+}
+
+void Vector4::SaveToOutputStream(std::ostream& outputStream) const
+{
+	Vector3::SaveToOutputStream(outputStream);
+	outputStream << STRING_SPACE_SEPARATOR << _w;
+}
+
+bool Vector4::LoadFromInputStream(std::istream& inputStream)
+{
+	Vector3::LoadFromInputStream(inputStream);
+	inputStream >> STRING_SPACE_SEPARATOR >> _w;
 }

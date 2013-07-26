@@ -24,6 +24,9 @@ public:
 	Vector2 &operator-=(const Vector2 &rhs);
 	Vector2 &operator*=(const Vector2 &rhs);
 
+	virtual void SaveToOutputStream(std::ostream&) const;
+	virtual bool LoadFromInputStream(std::istream&);
+
 protected:
 	float _y;
 

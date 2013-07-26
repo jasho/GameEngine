@@ -30,6 +30,9 @@ public:
 	Vector3 &operator-=(const Vector3 &rhs);
 	Vector3 &operator*=(const Vector3 &rhs);
 
+	virtual void SaveToOutputStream(std::ostream&) const;
+	virtual bool LoadFromInputStream(std::istream&);
+
 protected:	
 	float _z;
 

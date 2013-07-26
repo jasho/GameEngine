@@ -1,5 +1,6 @@
 #include "Vector3.h"
 #include "..\Conversions.h"
+#include "../../Serialize/SerializationStrings.h"
 
 using namespace std;
 
@@ -108,4 +109,16 @@ Vector3 &Vector3::operator*=(const Vector3 &rhs)
 {
 	*this = *this * rhs;
 	return *this;
+}
+
+void Vector3::SaveToOutputStream(std::ostream& outputStream) const
+{
+	Vector2::SaveToOutputStream(outputStream);
+	outputStream << STRING_SPACE_SEPARATOR << _z;
+}
+
+bool Vector3::LoadFromInputStream(std::istream& inputStream)
+{
+	Vector2::LoadFromInputStream(inputStream);
+	inputStream >> STRING_SPACE_SEPARATOR >> _z;
 }
