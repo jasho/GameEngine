@@ -9,7 +9,7 @@ public:
 	static SceneManager* GetInstance();
 	static void Create();
 	static void Destroy();
-
+	static void Initialize();
 	void RenderScene() const;
 
 protected:

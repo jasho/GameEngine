@@ -20,7 +20,7 @@ public:
 	void SetColors( float, float, float );
 
 	virtual void SaveToOutputStream(std::ostream&) const;
-	virtual void LoadFromInputStream(std::istream&);
+	virtual bool LoadFromInputStream(std::istream&);
 
 private:
 	float _red;

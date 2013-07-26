@@ -44,7 +44,7 @@ void CubeModel::SaveToOutputStream(std::ostream& outputStream) const
 			{
 				if(_cubes[x][y][z] == NULL)
 				{
-					outputStream << STRING_NULL << STRING_SPACE_SEPARATOR;
+					outputStream << STRING_COLOR_NULL << STRING_SPACE_SEPARATOR;
 				}
 				else
 				{
@@ -57,18 +57,31 @@ void CubeModel::SaveToOutputStream(std::ostream& outputStream) const
 	}
 }
 
-void CubeModel::LoadFromInputStream(std::istream& inputStream)
+bool CubeModel::LoadFromInputStream(std::istream& inputStream)
 {
 	int sizeX, sizeY, sizeZ;
 	inputStream >> sizeX >> sizeY >> sizeZ;
 
+	_cubes = vector<vector<vector<Color *>>>(sizeX);
+	
 	for(int x = 0; x < sizeX; ++x)
 	{
+		_cubes[x] = vector<vector<Color *>>( sizeY );
 		for(int y = 0; y < sizeY; ++y)
 		{
+			_cubes[x][y] = vector<Color *>( sizeZ );
 			for(int z = 0; z < sizeZ; ++z)
 			{
-				
+				Color * newCubeColor = new Color();
+				if( newCubeColor->LoadFromInputStream(inputStream) )
+				{
+					_cubes[x][y][z] = newCubeColor;
+				}
+				else
+				{
+					_cubes[x][y][z] = NULL;
+					delete newCubeColor;
+				}
 			}
 		}
 	}

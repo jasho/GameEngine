@@ -14,7 +14,7 @@ public:
 	virtual void Draw() const;
 	
 	virtual void SaveToOutputStream(std::ostream&) const;
-	virtual void LoadFromInputStream(std::istream&);
+	virtual bool LoadFromInputStream(std::istream&);
 
 private:
 	vector<vector<vector<Color *>>> _cubes;

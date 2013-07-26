@@ -17,7 +17,7 @@ void Serializable::SaveToFile(string fileName) const
 	outputFileStream.close();
 }
 
-void Serializable::LoadFromFile(string fileName)
+bool Serializable::LoadFromFile(string fileName)
 {
 	ifstream inputFileStream;
 	inputFileStream.open(fileName, ios::in);

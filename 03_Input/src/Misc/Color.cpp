@@ -61,9 +61,15 @@ void Color::SaveToOutputStream(std::ostream& outputStream) const
 	outputStream << _blue << STRING_SPACE_SEPARATOR;
 }
 
-void Color::LoadFromInputStream(std::istream& inputStream)
+bool Color::LoadFromInputStream(std::istream& inputStream)
 {
 	inputStream >> _red;
 	inputStream >> _green;
 	inputStream >> _blue;
+
+	if( (_red < 0) || (_green < 0) || (_blue < 0) )
+	{
+		return false;
+	}
+	return true;
 }

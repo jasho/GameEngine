@@ -3,3 +3,4 @@
 #define STRING_LAYER_SEPARATOR "-"
 
 #define STRING_NULL "N"
+#define STRING_COLOR_NULL "-1 -1 -1"

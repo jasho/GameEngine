@@ -28,6 +28,11 @@ void SceneManager::Destroy()
 	}
 }
 
+void SceneManager::Initialize()
+{
+	//_sceneNodeRoot = new SceneNode();
+}
+
 SceneManager* SceneManager::GetInstance()
 {
 	return _instance;
