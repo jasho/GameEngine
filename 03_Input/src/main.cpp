@@ -45,6 +45,7 @@ int wmain(int argc, char *argv[])
 
 	
 	UpdateManager::GetInstance()->Run();
+	SceneManager::GetInstance()->SaveToFile("testOutput");
 
 	UpdateManager::Destroy();
 	EventManager::Destroy();

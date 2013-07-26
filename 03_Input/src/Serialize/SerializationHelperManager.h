@@ -19,14 +19,16 @@ public:
 	std::string GetEndTag(std::string tagName) const;
 
 protected:
+	enum SerializationHelperType { XML };
 
+	SerializationHelperType _prefferedHelperType;
 
 	static SerializationHelperManager* _instance;
 
 	SerializationHelper* _serializationHelper;
 
 private:
-	SerializationHelperManager();
+	SerializationHelperManager(SerializationHelperType helperType = XML);
 	~SerializationHelperManager();
 };
 

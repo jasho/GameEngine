@@ -1,14 +1,22 @@
 #include <cstdio>
 #include "SerializationHelperManager.h"
 #include "SerializationHelpers\SerializationHelper.h"
+#include "SerializationHelpers\SerializationHelperXml.h"
 
 using namespace std;
 
 SerializationHelperManager* SerializationHelperManager::_instance = NULL;
 
-SerializationHelperManager::SerializationHelperManager()
+SerializationHelperManager::SerializationHelperManager(SerializationHelperType helperType)
 {
-
+	switch (helperType)
+	{
+	case SerializationHelperManager::XML:
+		_serializationHelper = new SerializationHelperXml();
+		break;
+	default:
+		break;
+	}
 }
 
 SerializationHelperManager::~SerializationHelperManager()

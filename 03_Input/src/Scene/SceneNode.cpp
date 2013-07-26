@@ -68,19 +68,30 @@ void SceneNode::Scale ( int x, int y, int z )
 void SceneNode::SaveToOutputStream(std::ostream& outputStream) const
 {
 	outputStream << SerializationHelperManager::GetInstance()->GetStartTag(STRING_SCENENODE_MODEL_TAGNAME, NULL );
+	outputStream << STRING_LINE_SEPARATOR;
 	_model->SaveToOutputStream( outputStream );
+	outputStream << STRING_LINE_SEPARATOR;
 	outputStream << SerializationHelperManager::GetInstance()->GetEndTag( STRING_SCENENODE_MODEL_TAGNAME );
+	outputStream << STRING_LINE_SEPARATOR;
 
 	outputStream << SerializationHelperManager::GetInstance()->GetStartTag( STRING_SCENENODE_POSITION_TAGNAME , NULL);
+	outputStream << STRING_LINE_SEPARATOR;
 	_position.SaveToOutputStream( outputStream );
+	outputStream << STRING_LINE_SEPARATOR;
 	outputStream << SerializationHelperManager::GetInstance()->GetEndTag( STRING_SCENENODE_POSITION_TAGNAME );
+	outputStream << STRING_LINE_SEPARATOR;
 
 	outputStream << SerializationHelperManager::GetInstance()->GetStartTag( STRING_SCENENODE_ROTATION_TAGNAME, NULL );
+	outputStream << STRING_LINE_SEPARATOR;
 	_rotation.SaveToOutputStream( outputStream );
+	outputStream << STRING_LINE_SEPARATOR;
 	outputStream << SerializationHelperManager::GetInstance()->GetEndTag( STRING_SCENENODE_ROTATION_TAGNAME );
+	outputStream << STRING_LINE_SEPARATOR;
 
 	outputStream << SerializationHelperManager::GetInstance()->GetStartTag( STRING_SCENENODE_SCALE_TAGNAME , NULL);
+	outputStream << STRING_LINE_SEPARATOR;
 	_scale.SaveToOutputStream( outputStream );
+	outputStream << STRING_LINE_SEPARATOR;
 	outputStream << SerializationHelperManager::GetInstance()->GetEndTag( STRING_SCENENODE_SCALE_TAGNAME );
 }
 
