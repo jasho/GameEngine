@@ -4,6 +4,8 @@
 #include "../Render/RenderManager.h"
 #include "../Serialize/SerializationHelperManager.h"
 #include "../Serialize/SerializationStrings.h"
+#include "../Render/Camera/Camera.h"
+
 //remove this include
 #include "../Render/Models/CubeModel.h"
 
@@ -12,6 +14,7 @@ SceneManager* SceneManager::_instance = NULL;
 SceneManager::SceneManager()
 {
 	_sceneNodeRoot = new SceneNode(new CubeModel(), Vector3(0.0f, 0.0f, -10.0f));
+	_currentCamera = new Camera();
 }
 
 SceneManager::~SceneManager()
@@ -39,10 +42,22 @@ SceneManager* SceneManager::GetInstance()
 	return _instance;
 }
 
+void SceneManager::CameraMove(const Vector3& translation)
+{
+	_currentCamera->Move(translation);
+}
+
+void SceneManager::CameraRotate(const Vector3& rotation)
+{
+	_currentCamera->Rotate(rotation);
+}
+
 void SceneManager::RenderScene() const
 {
 
 	RenderManager::GetInstance()->StartDrawingScene();
+
+	_currentCamera->Transform();
 
 	_sceneNodeRoot->Render();
 

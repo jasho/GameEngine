@@ -1,10 +1,11 @@
 #include "PlayerManager.h"
-#include <iostream>
-#include <SDL/SDL.h>
+#include "UserPlayer.h"
+
+PlayerManager* PlayerManager::_instance = NULL;
 
 PlayerManager::PlayerManager()
 {
-
+	UserPlayer* newPlayer = new UserPlayer();
 }
 
 PlayerManager::~PlayerManager()

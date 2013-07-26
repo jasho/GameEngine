@@ -9,7 +9,7 @@
 using namespace std;
 
 
-class UserPlayer : public Player, public KeyboardListener, public MouseListener
+class UserPlayer : public Player, public KeyboardListener
 {
 public:
 	UserPlayer();

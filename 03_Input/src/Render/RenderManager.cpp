@@ -2,6 +2,7 @@
 #include "RenderManager.h"
 #include "Renderers/Renderer.h"
 #include "Renderers/RendererOpenGL.h"
+#include "Camera/Camera.h"
 
 RenderManager* RenderManager::_instance = NULL;
 
@@ -10,9 +11,7 @@ RenderManager::RenderManager(void)
 	_prefferedRenderer = RENDERER_TYPE_OPENGL;
 	_windowWidth = 640;
 	_windowHeight = 480;
-	_fullscreen = false;
-
-	tmpYRotation = -90.0f;
+	_fullscreen = false;	
 }
 
 RenderManager::~RenderManager(void)
@@ -104,6 +103,11 @@ void RenderManager::StartDrawingSceneNode(const Vector3 &position, const Vector3
 void RenderManager::StopDrawingSceneNode(void) const
 {
 	_renderer->StopDrawingSceneNode();
+}
+
+void RenderManager::TransformCamera(const Vector3& position, const Vector3& orientation) const
+{
+	_renderer->TransformCamera(position, orientation);
 }
 
 void RenderManager::DrawCube(const Vector3& leftUpForwardVertex, const Vector3& rightBottomBackVertex, const Color& color) const

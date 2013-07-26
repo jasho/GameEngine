@@ -12,10 +12,12 @@
 #include "Window\WindowManager.h"
 #include "Scene\SceneManager.h"
 #include "Serialize\SerializationHelperManager.h"
+#include "Player\PlayerManager.h"
 
 int wmain(int argc, char *argv[])
 {
 	SerializationHelperManager::Create();
+	PlayerManager::Create();
 	EventManager::Create();
 	InputManager::Create();
 	SceneManager::Create();

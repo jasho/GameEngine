@@ -40,7 +40,9 @@ string SerializationHelperXml::GetEndTag(std::string tagName) const
 	return toReturn;
 }
 
-bool SerializationHelperXml::IsTag(std::string tag)
+string SerializationHelperXml::GetTagNameFromTag(std::string tag) const
 {
-	return true;
+	string toReturn;
+
+	return toReturn;
 }

@@ -28,6 +28,8 @@ public:
 	void StartDrawingSceneNode(const Vector3 &position, const Vector3 &orientation) const;
 	void StopDrawingSceneNode(void) const;
 
+	virtual void TransformCamera(const Vector3& position, const Vector3& orientation) const;
+
 	void DrawCube(const Vector3& leftUpForwardVertex, const Vector3& rightBottomBackVertex, const Color& color) const;
 
 protected:
@@ -40,8 +42,6 @@ protected:
 	int _windowWidth;
 	int _windowHeight;
 	bool _fullscreen;
-
-	float tmpYRotation;
 
 private:
 	RenderManager(void);

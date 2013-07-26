@@ -94,6 +94,7 @@
     <ClCompile Include="src\Player\Player.cpp" />
     <ClCompile Include="src\Player\PlayerManager.cpp" />
     <ClCompile Include="src\Player\UserPlayer.cpp" />
+    <ClCompile Include="src\Render\Camera\Camera.cpp" />
     <ClCompile Include="src\Render\Models\CubeModel.cpp" />
     <ClCompile Include="src\Render\Models\Model.cpp" />
     <ClCompile Include="src\Render\Renderers\Renderer.cpp" />
@@ -126,6 +127,7 @@
     <ClInclude Include="src\Player\Player.h" />
     <ClInclude Include="src\Player\PlayerManager.h" />
     <ClInclude Include="src\Player\UserPlayer.h" />
+    <ClInclude Include="src\Render\Camera\Camera.h" />
     <ClInclude Include="src\Render\Models\CubeModel.h" />
     <ClInclude Include="src\Render\Models\Model.h" />
     <ClInclude Include="src\Render\Renderers\Renderer.h" />
