@@ -2,4 +2,4 @@
 #define STRING_LINE_SEPARATOR "\n"
 #define STRING_LAYER_SEPARATOR "-"
 
-#define STRING_CUBEMODEL_TYPE "CubeModel"
+#define STRING_NULL "N"

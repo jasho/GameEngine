@@ -42,7 +42,14 @@ void CubeModel::SaveToOutputStream(std::ostream& outputStream) const
 		{
 			for(int z = 0; z < sizeZ; ++z)
 			{
-				_cubes[x][y][z]->SaveToOutputStream(outputStream);
+				if(_cubes[x][y][z] == NULL)
+				{
+					outputStream << STRING_NULL << STRING_SPACE_SEPARATOR;
+				}
+				else
+				{
+					_cubes[x][y][z]->SaveToOutputStream(outputStream);
+				}
 			}
 			outputStream << STRING_LINE_SEPARATOR;
 		}
