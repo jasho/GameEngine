@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <cstdlib>
 
 class SerializationHelper;
 
@@ -15,7 +16,7 @@ public:
 
 	bool Initialize(void);
 
-	std::string GetStartTag(std::string tagName, std::map<std::string, std::string>* attributes) const;
+	std::string GetStartTag(std::string tagName, std::map<std::string, std::string>* attributes = NULL) const;
 	std::string GetEndTag(std::string tagName) const;
 
 protected:

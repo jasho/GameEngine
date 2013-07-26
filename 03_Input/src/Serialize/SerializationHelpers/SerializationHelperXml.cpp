@@ -6,6 +6,7 @@ using namespace std;
 string SerializationHelperXml::GetStartTag(string tagName, map<string, string>* attributes) const
 {
 	string toReturn = "";
+
 	toReturn += STRING_HELPERXML_STARTTAG_START;
 		toReturn += tagName;
 	
@@ -23,6 +24,7 @@ string SerializationHelperXml::GetStartTag(string tagName, map<string, string>* 
 			}
 		}
 	toReturn += STRING_HELPERXML_STARTTAG_END;
+	toReturn += STRING_LINE_SEPARATOR;
 
 	return toReturn;
 }
@@ -33,6 +35,12 @@ string SerializationHelperXml::GetEndTag(std::string tagName) const
 	toReturn += STRING_HELPERXML_ENDTAG_START;
 	toReturn += tagName;
 	toReturn += STRING_HELPERXML_ENDTAG_END;
+	toReturn += STRING_LINE_SEPARATOR;
 
 	return toReturn;
+}
+
+bool SerializationHelperXml::IsTag(std::string tag)
+{
+	return true;
 }

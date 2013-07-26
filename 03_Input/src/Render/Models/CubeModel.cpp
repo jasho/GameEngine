@@ -67,9 +67,17 @@ void CubeModel::SaveToOutputStream(std::ostream& outputStream) const
 					_cubes[x][y][z]->SaveToOutputStream(outputStream);
 				}
 			}
-			outputStream << STRING_LINE_SEPARATOR;
+
+			if(y < (sizeY - 1))
+			{
+				outputStream << STRING_LINE_SEPARATOR;
+			}
 		}
-		outputStream << STRING_LAYER_SEPARATOR;
+
+		if(x < (sizeX - 1))
+		{
+			outputStream << STRING_LAYER_SEPARATOR;
+		}
 	}
 }
 

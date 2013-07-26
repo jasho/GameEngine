@@ -52,15 +52,12 @@ void SceneManager::RenderScene() const
 void SceneManager::SaveToOutputStream(std::ostream& outputStream) const
 {
 	outputStream << SerializationHelperManager::GetInstance()->GetStartTag( STRING_SCENEMANAGER_SCENE_TAGNAME , NULL);
-	outputStream << STRING_LINE_SEPARATOR;
-	_sceneNodeRoot->SaveToOutputStream( outputStream );
-	outputStream << STRING_LINE_SEPARATOR;
+	_sceneNodeRoot->SaveToOutputStream( outputStream );	
 	outputStream << SerializationHelperManager::GetInstance()->GetEndTag( STRING_SCENEMANAGER_SCENE_TAGNAME );
 }
 
 bool SceneManager::LoadFromInputStream(std::istream&)
 {
-
 	return true;
 }
 
