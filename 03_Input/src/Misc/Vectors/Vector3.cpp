@@ -120,5 +120,7 @@ void Vector3::SaveToOutputStream(std::ostream& outputStream) const
 bool Vector3::LoadFromInputStream(std::istream& inputStream)
 {
 	Vector2::LoadFromInputStream(inputStream);
-	inputStream >> STRING_SPACE_SEPARATOR >> _z;
+	inputStream >> _z;
+
+	return true;
 }

@@ -8,6 +8,14 @@ SceneNode::SceneNode()
 {
 }
 
+SceneNode::SceneNode(Model* model, Vector3& position, Vector3& rotation, Vector3& scale)
+{
+	_model = model;
+	_position = position;
+	_rotation = rotation;
+	_scale = scale;
+}
+
 SceneNode::~SceneNode()
 {
 }
@@ -81,8 +89,9 @@ bool SceneNode::LoadFromInputStream(std::istream& inputStream)
 	/*_model->LoadFromInputStream( inputStream );
 	_position.LoadFromInputStream( inputStream );
 	_rotation.LoadFromInputStream( inputStream );
-	_scale.LoadFromInputStream( inputStream );
-	return true;*/
+	_scale.LoadFromInputStream( inputStream ); */
+
+	return true;
 }
 
 void SceneNode::Render() const

@@ -1,9 +1,8 @@
 #include "UpdaterRunning.h"
 #include "../../Render/RenderManager.h"
-#include <Windows.h>
-#include <iostream>
+#include "../../Scene/SceneManager.h"
 
 void UpdaterRunning::Update()
 {
-	RenderManager::GetInstance()->RenderScene();
+	SceneManager::GetInstance()->RenderScene();
 }

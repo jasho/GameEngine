@@ -21,7 +21,9 @@ public:
 	void SetWindowHeight(int windowHeight);
 	bool IsFullscreen(void) const;
 	void ToggleFullscreen(void);
-	void RenderScene(void);
+
+	void StartDrawingScene(void) const;
+	void StopDrawingScene(void) const;
 
 	void StartDrawingSceneNode(const Vector3 &position, const Vector3 &orientation) const;
 	void StopDrawingSceneNode(void) const;

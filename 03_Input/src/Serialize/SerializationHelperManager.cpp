@@ -15,6 +15,11 @@ SerializationHelperManager::~SerializationHelperManager()
 {
 }
 
+SerializationHelperManager* SerializationHelperManager::GetInstance()
+{
+	return _instance;
+}
+
 void SerializationHelperManager::Create()
 {
 	if(_instance == NULL)

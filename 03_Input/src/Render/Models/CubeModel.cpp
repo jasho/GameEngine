@@ -3,11 +3,27 @@
 #include "../../Misc/Conversions.h"
 #include "../../Serialize/SerializationStrings.h"
 #include "../../Serialize/SerializationHelperManager.h"
+
 using namespace std;
+
+CubeModel::CubeModel()
+{
+	_cubes = vector<vector<vector<Color *>>>(1);
+	_cubes[0] = vector<vector<Color *>>(1);
+	_cubes[0][0] = vector<Color *>(1);
+
+	_cubes[0][0][0] = new Color(1.0f, 1.0f, 1.0f);
+}
+
+CubeModel::~CubeModel()
+{
+
+}
 
 void CubeModel::Draw() const
 {
 	int sizeX = _cubes.size();
+
 	int sizeY = _cubes[0].size();
 	int sizeZ = _cubes[0][0].size();
 		
@@ -86,4 +102,5 @@ bool CubeModel::LoadFromInputStream(std::istream& inputStream)
 		}
 	}
 
+	return true;
 }

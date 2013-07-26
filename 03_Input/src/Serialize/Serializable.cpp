@@ -23,8 +23,10 @@ bool Serializable::LoadFromFile(string fileName)
 	inputFileStream.open(fileName, ios::in);
 	if(!inputFileStream.is_open())
 	{
-		return;
+		return false;
 	}
 
 	LoadFromInputStream(inputFileStream);
+
+	return true;
 }

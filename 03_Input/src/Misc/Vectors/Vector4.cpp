@@ -58,5 +58,7 @@ void Vector4::SaveToOutputStream(std::ostream& outputStream) const
 bool Vector4::LoadFromInputStream(std::istream& inputStream)
 {
 	Vector3::LoadFromInputStream(inputStream);
-	inputStream >> STRING_SPACE_SEPARATOR >> _w;
+	inputStream >> _w;
+
+	return true;
 }

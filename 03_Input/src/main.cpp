@@ -10,11 +10,15 @@
 #include "Event\EventManager.h"
 #include "Input\InputManager.h"
 #include "Window\WindowManager.h"
+#include "Scene\SceneManager.h"
+#include "Serialize\SerializationHelperManager.h"
 
 int wmain(int argc, char *argv[])
 {
+	SerializationHelperManager::Create();
 	EventManager::Create();
 	InputManager::Create();
+	SceneManager::Create();
 	UpdateManager::Create();
 	RenderManager::Create();	
 	WindowManager::Create();

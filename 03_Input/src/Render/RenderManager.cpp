@@ -3,8 +3,6 @@
 #include "Renderers/Renderer.h"
 #include "Renderers/RendererOpenGL.h"
 
-#include <Windows.h>
-
 RenderManager* RenderManager::_instance = NULL;
 
 RenderManager::RenderManager(void)
@@ -88,26 +86,14 @@ void RenderManager::ToggleFullscreen(void)
 	_fullscreen = !_fullscreen;
 }
 
-void RenderManager::RenderScene(void)
+void RenderManager::StartDrawingScene(void) const
 {
 	_renderer->StartDrawingScene();
-	Vector3 cameraPosition(0.0f, 0.0f, 0.0f);
-	Vector3 cameraRotation(0.0f, tmpYRotation, 0.0f);
-	_renderer->TransformCamera(cameraPosition, cameraRotation);
-	//_renderer->DrawTriangle();
-	Vector3 leftUpForwardVertex(0.0f, 1.0f, -10.0f);
-	Vector3 rightBottomBackVertex(1.0f, 0.0f, -20.0f);
-	Color color(1.0f, 0.0f, 0.0f);
-	_renderer->DrawCube(leftUpForwardVertex, rightBottomBackVertex, color);
+}
+
+void RenderManager::StopDrawingScene(void) const
+{
 	_renderer->StopDrawingScene();
-
-	tmpYRotation += 1.0f;
-	if(tmpYRotation > 90.0f)
-	{
-		tmpYRotation = -90.0f;
-	}
-
-	Sleep(10);
 }
 
 void RenderManager::StartDrawingSceneNode(const Vector3 &position, const Vector3 &orientation) const

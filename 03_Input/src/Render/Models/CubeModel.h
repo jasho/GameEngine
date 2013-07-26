@@ -11,6 +11,9 @@ using namespace std;
 class CubeModel : public Model
 {
 public:
+	CubeModel();
+	~CubeModel();
+
 	virtual void Draw() const;
 	
 	virtual void SaveToOutputStream(std::ostream&) const;

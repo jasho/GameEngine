@@ -51,5 +51,7 @@ void Vector2::SaveToOutputStream(std::ostream& outputStream) const
 bool Vector2::LoadFromInputStream(std::istream& inputStream)
 {
 	Vector::LoadFromInputStream(inputStream);
-	inputStream >> STRING_SPACE_SEPARATOR >> _y;
+	inputStream >> _y;
+
+	return true;
 }

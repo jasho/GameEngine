@@ -33,4 +33,6 @@ string SerializationHelperXml::GetEndTag(std::string tagName) const
 	toReturn += STRING_HELPERXML_ENDTAG_START;
 	toReturn += tagName;
 	toReturn += STRING_HELPERXML_ENDTAG_END;
+
+	return toReturn;
 }
