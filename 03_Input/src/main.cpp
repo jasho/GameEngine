@@ -17,9 +17,9 @@
 int wmain(int argc, char *argv[])
 {
 	SerializationHelperManager::Create();
-	PlayerManager::Create();
 	EventManager::Create();
 	InputManager::Create();
+	PlayerManager::Create();
 	SceneManager::Create();
 	UpdateManager::Create();
 	RenderManager::Create();	

@@ -61,6 +61,7 @@ void InputManager::OnInputEvent(SDL_Event* event)
 		break;
 	// Mouse
 	case SDL_MOUSEMOTION:
+		notifyMouseMoved( event->motion.xrel , event->motion.yrel );
 		std::cout << event->motion.x << " x " << event->motion.y << std::endl;
 		break;
 
@@ -183,10 +184,10 @@ void InputManager::notifyMouseRightButtonClicked() const {
 		(*iter)->MouseRightButtonClicked();
 }
 
-void InputManager::notifyMouseMoved() const
+void InputManager::notifyMouseMoved( int x, int y ) const
 {
 	for(std::set<MouseListener *>::iterator iter = _mouseListeners.begin(); iter != _mouseListeners.end(); ++iter)
-		(*iter)->MouseMoved((int)_mousePosition->GetX(), (int)_mousePosition->GetY());
+		(*iter)->MouseMoved( x, y);
 }
 
 /**
