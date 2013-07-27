@@ -25,7 +25,7 @@ int wmain(int argc, char *argv[])
 	RenderManager::Create();	
 	WindowManager::Create();
 
-	SceneManager::GetInstance()->LoadFromFile("testOutput");
+	SceneManager::GetInstance()->LoadFromFile("testInput.txt");
 
 	if(UpdateManager::GetInstance()->Initialize() == false)
 	{
