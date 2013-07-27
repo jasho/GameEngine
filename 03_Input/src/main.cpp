@@ -25,6 +25,8 @@ int wmain(int argc, char *argv[])
 	RenderManager::Create();	
 	WindowManager::Create();
 
+	SceneManager::GetInstance()->LoadFromFile("testOutput");
+
 	if(UpdateManager::GetInstance()->Initialize() == false)
 	{
 		EventManager::Destroy();

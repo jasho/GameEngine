@@ -3,9 +3,15 @@
 #include "../Render/RenderManager.h"
 #include "../Serialize/SerializationHelperManager.h"
 #include "../Serialize/SerializationStrings.h"
+#include "../Render/Models/CubeModel.h"
 
 SceneNode::SceneNode()
 {
+}
+
+SceneNode::SceneNode(std::istream& inputStream)
+{
+	LoadFromInputStream(inputStream);
 }
 
 SceneNode::SceneNode(Model* model, Vector3& position, Vector3& rotation, Vector3& scale)
@@ -94,10 +100,36 @@ void SceneNode::SaveToOutputStream(std::ostream& outputStream) const
 
 bool SceneNode::LoadFromInputStream(std::istream& inputStream)
 {
-	/*_model->LoadFromInputStream( inputStream );
-	_position.LoadFromInputStream( inputStream );
-	_rotation.LoadFromInputStream( inputStream );
-	_scale.LoadFromInputStream( inputStream ); */
+	string line = "";
+	string tagName = "";
+	TagType tagType;
+
+	while(!inputStream.eof() 
+		|| (tagName != STRING_SCENENODE_TAGNAME && tagType != TagType::END) )
+	{
+		getline(inputStream, line);
+		tagName = SerializationHelperManager::GetInstance()->GetTagNameFromTag(line, &tagType);
+		if(tagType == TagType::START)
+		{
+			if(tagName == STRING_SCENENODE_MODEL_TAGNAME)
+			{
+				CubeModel* newModel = new CubeModel(inputStream);
+				_model = newModel;
+			}
+			else if(tagName == STRING_SCENENODE_POSITION_TAGNAME)
+			{
+				_position.LoadFromInputStream(inputStream);
+			}
+			else if(tagName == STRING_SCENENODE_ROTATION_TAGNAME)
+			{
+				_rotation.LoadFromInputStream(inputStream);
+			}
+			else if(tagName == STRING_SCENENODE_SCALE_TAGNAME)
+			{
+				_scale.LoadFromInputStream(inputStream);
+			}
+		}
+	}
 
 	return true;
 }

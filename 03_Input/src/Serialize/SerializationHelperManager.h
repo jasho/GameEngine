@@ -5,6 +5,7 @@
 #include <map>
 #include <cstdlib>
 
+enum TagType {START, END, NONE};
 class SerializationHelper;
 
 class SerializationHelperManager
@@ -18,6 +19,8 @@ public:
 
 	std::string GetStartTag(std::string tagName, std::map<std::string, std::string>* attributes = NULL) const;
 	std::string GetEndTag(std::string tagName) const;
+
+	virtual std::string GetTagNameFromTag(std::string tag, TagType* tagType) const;
 
 protected:
 	enum SerializationHelperType { XML };

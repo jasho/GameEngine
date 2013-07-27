@@ -40,9 +40,38 @@ string SerializationHelperXml::GetEndTag(std::string tagName) const
 	return toReturn;
 }
 
-string SerializationHelperXml::GetTagNameFromTag(std::string tag) const
+string SerializationHelperXml::GetTagNameFromTag(std::string tag, TagType* tagType) const
 {
 	string toReturn;
+	size_t foundStart = tag.find_first_of(STRING_HELPERXML_STARTTAG_START);
+	if(foundStart == string::npos)
+	{
+		(*tagType) = NONE;
+		return "";
+	}
+
+	size_t foundEnd = tag.find_last_of(STRING_HELPERXML_STARTTAG_END);
+
+	if(foundEnd == string::npos)
+	{
+		foundEnd = tag.find_last_of(STRING_HELPERXML_ENDTAG_END);
+
+		if(foundEnd == string::npos)
+		{
+			(*tagType) = NONE;
+			return "";
+		}
+		else
+		{
+			(*tagType) = END;
+			return tag.substr(foundStart + 1, (foundEnd - foundStart));
+		}
+	}
+	else
+	{
+		(*tagType) = START;
+		return tag.substr(foundStart + 1, (foundEnd - foundStart));
+	}
 
 	return toReturn;
 }

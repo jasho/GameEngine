@@ -15,6 +15,11 @@ CubeModel::CubeModel()
 	_cubes[0][0][0] = new Color(1.0f, 1.0f, 1.0f);
 }
 
+CubeModel::CubeModel(istream& inputStream)
+{
+	LoadFromInputStream(inputStream);
+}
+
 CubeModel::~CubeModel()
 {
 

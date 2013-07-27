@@ -66,13 +66,35 @@ void SceneManager::RenderScene() const
 
 void SceneManager::SaveToOutputStream(std::ostream& outputStream) const
 {
-	outputStream << SerializationHelperManager::GetInstance()->GetStartTag( STRING_SCENEMANAGER_SCENE_TAGNAME , NULL);
+	outputStream << SerializationHelperManager::GetInstance()->GetStartTag( STRING_SCENEMANAGER_TAGNAME , NULL);
 	_sceneNodeRoot->SaveToOutputStream( outputStream );	
-	outputStream << SerializationHelperManager::GetInstance()->GetEndTag( STRING_SCENEMANAGER_SCENE_TAGNAME );
+	outputStream << SerializationHelperManager::GetInstance()->GetEndTag( STRING_SCENEMANAGER_TAGNAME );
 }
 
-bool SceneManager::LoadFromInputStream(std::istream&)
+bool SceneManager::LoadFromInputStream(std::istream& inputStream)
 {
+	string line = "";
+	string tagName = "";
+	TagType tagType;
+
+	while(!inputStream.eof() 
+		|| (tagName != STRING_SCENEMANAGER_TAGNAME && tagType != TagType::END) )
+	{
+		getline(inputStream, line);
+		tagName = SerializationHelperManager::GetInstance()->GetTagNameFromTag(line, &tagType);
+
+		if(tagType == TagType::START)
+		{
+			if(tagName == STRING_SCENENODE_TAGNAME)
+			{
+				SceneNode* newSceneNode = new SceneNode(inputStream);
+
+				_sceneNodeRoot = newSceneNode;
+			}
+		}
+	}
+
+
 	return true;
 }
 

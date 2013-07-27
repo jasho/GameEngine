@@ -12,6 +12,7 @@ class CubeModel : public Model
 {
 public:
 	CubeModel();
+	CubeModel(std::istream& inputStream);
 	~CubeModel();
 
 	virtual void Draw() const;

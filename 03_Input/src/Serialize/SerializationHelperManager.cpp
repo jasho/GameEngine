@@ -54,3 +54,8 @@ string SerializationHelperManager::GetEndTag(string tagName) const
 {
 	return _serializationHelper->GetEndTag(tagName);
 }
+
+string SerializationHelperManager::GetTagNameFromTag(string tag, TagType* tagType) const
+{
+	return _serializationHelper->GetTagNameFromTag(tag, tagType);
+}

@@ -13,6 +13,7 @@ class SceneNode : public Serializable
 {
 public:
 	SceneNode();
+	SceneNode(std::istream& inputStream);
 	SceneNode(Model* model, Vector3& position = Vector3(0.0f, 0.0f, 0.0f), Vector3& rotation = Vector3(0.0f, 0.0f, 0.0f), Vector3& scale = Vector3(0.0f, 0.0f, 0.0f));
 	~SceneNode();
 
