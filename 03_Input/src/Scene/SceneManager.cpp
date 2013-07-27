@@ -78,7 +78,7 @@ bool SceneManager::LoadFromInputStream(std::istream& inputStream)
 	TagType tagType;
 
 	while(!inputStream.eof() 
-		|| (tagName != STRING_SCENEMANAGER_TAGNAME && tagType != TagType::END) )
+		&& !(tagName == STRING_SCENEMANAGER_TAGNAME && tagType == TagType::END) )
 	{
 		getline(inputStream, line);
 		tagName = SerializationHelperManager::GetInstance()->GetTagNameFromTag(line, &tagType);
